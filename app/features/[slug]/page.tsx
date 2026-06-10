@@ -3,9 +3,13 @@ import { Header } from '@/components/Header'
 import { BottomNav } from '@/components/BottomNav'
 import { getFeatureData } from '@/lib/growth'
 
-export default function FeaturePage({ params }: { params: { slug: string } }) {
-  const { feature, rows } = getFeatureData(params.slug)
-
+export default async function FeaturePage({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params
+  const { feature, rows } = getFeatureData(slug)
   return (
     <>
       <Header label="特集" />
