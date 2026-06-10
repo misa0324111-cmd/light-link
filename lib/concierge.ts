@@ -120,7 +120,9 @@ export function conciergeScore(state: ConciergeState, talent: Talent): Concierge
     reasons.push('本日対応できます')
   }
 
-  if (state.mood && talent.tags.some((tag) => tag.includes(state.mood.replace('系', '')))) {
+  const mood = state.mood
+
+if (mood && talent.tags.some((tag) => tag.includes(mood.replace('系', '')))) {
     score += 12
     reasons.push('希望の雰囲気に合っています')
   }
