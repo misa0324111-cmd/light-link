@@ -12,3 +12,4 @@ export default function AgeCheck() {
     </section>
   </main>
 }
+
