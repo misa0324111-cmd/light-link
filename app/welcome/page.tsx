@@ -5,12 +5,20 @@ import { AiSearchBar } from '@/components/AiSearchBar'
 import { talents } from '@/lib/data'
 
 export default function Welcome() {
+  const ranking = talents.slice(0, 3)
+
   return (
     <>
       <Header />
 
-      <main className="page_grid">
-        <section className="hero">
+      <main className="page grid">
+        <section
+          className="hero"
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.92)), radial-gradient(circle at top right, rgba(236,72,153,.35), transparent 35%), #080808',
+          }}
+        >
           <p className="badge">AI CONCIERGE</p>
 
           <h1>
@@ -37,31 +45,22 @@ export default function Welcome() {
 
         <AiSearchBar />
 
-        <section className="card">
-          <h2>人気キャスト</h2>
+        <section className="card grid">
+          <p className="badge">RANKING</p>
+          <h2>人気ランキング</h2>
 
-          <div className="grid">
-            {talents.slice(0, 3).map((talent) => (
+          <div className="split">
+            {ranking.map((talent, index) => (
               <Link
                 key={talent.id}
                 href={`/talents/${talent.id}`}
-                className="card talent"
+                className="card"
               >
-                <div className="avatar">
-                  {talent.name[0]}
-                </div>
-
-                <div>
-                  <b>{talent.name}</b>
-
-                  <p className="muted">
-                    {talent.area}
-                  </p>
-
-                  <p>
-                    AIおすすめ度 {talent.aiScore}%
-                  </p>
-                </div>
+                <div className="avatar">{index + 1}</div>
+                <h3>{talent.name}</h3>
+                <p className="muted">
+                  {talent.area} / {talent.aiScore}%
+                </p>
               </Link>
             ))}
           </div>
