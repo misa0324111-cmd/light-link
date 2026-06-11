@@ -191,3 +191,54 @@ a{color:inherit;text-decoration:none}
   .city-menu{grid-template-columns:repeat(3,1fr);padding:18px;gap:10px}
   .city-menu-card{min-height:82px;border-radius:18px}
 }
+.store-search-hero{
+  padding:34px 24px;
+  background:
+    radial-gradient(circle at top right,rgba(236,72,153,.35),transparent 30%),
+    linear-gradient(135deg,#090909,#140714);
+  border-bottom:1px solid #3a2a12;
+}
+
+.store-search-hero h1{
+  font-size:44px;
+  margin:18px 0;
+}
+
+.store-result-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+
+.store-result-card{
+  display:block;
+  padding:22px;
+  border-radius:22px;
+  background:linear-gradient(135deg,#151515,#090909);
+  border:1px solid #4a3510;
+}
+
+.store-result-card h3{
+  font-size:22px;
+  margin-bottom:10px;
+  color:#ffd36a;
+}
+
+.store-result-card p{
+  color:#d1d1d1;
+  margin-bottom:14px;
+}
+
+.store-result-card b{
+  color:#ff66b7;
+}
+
+@media(max-width:768px){
+  .store-result-grid{
+    grid-template-columns:1fr;
+  }
+
+  .store-search-hero h1{
+    font-size:34px;
+  }
+}
