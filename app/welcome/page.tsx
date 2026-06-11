@@ -31,6 +31,15 @@ const areaTags = ['新宿', '池袋', '渋谷', '上野', '五反田', '品川',
 
 const conditionTags = ['本日出勤', '即案内可能', '初心者人気', '会話上手', '聞き上手', 'リピート多数']
 
+const cityMenu = [
+  { label: '本日出勤', icon: '📅', href: '/search?q=本日出勤' },
+  { label: '新人', icon: '🌸', href: '/search?q=新人' },
+  { label: 'ランキング', icon: '👑', href: '/ranking' },
+  { label: '写メ日記', icon: '📸', href: '/diary' },
+  { label: 'クーポン', icon: '🎟️', href: '/coupons' },
+  { label: '口コミ', icon: '💬', href: '/reviews' },
+]
+
 export default function Welcome() {
   const ranking = [
     { rank: '1', name: 'れいな', area: '新宿', score: '96%', emoji: '👩🏻' },
@@ -64,6 +73,15 @@ export default function Welcome() {
               <Link className="btn btn2" href="/search">一覧から探す</Link>
             </div>
           </div>
+        </section>
+
+        <section className="city-menu">
+          {cityMenu.map((item) => (
+            <Link className="city-menu-card" href={item.href} key={item.label}>
+              <span>{item.icon}</span>
+              <b>{item.label}</b>
+            </Link>
+          ))}
         </section>
 
         <section className="mag-search">
